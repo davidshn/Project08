@@ -70,10 +70,10 @@
   display: flex;
   position: relative;
   align-self: center;
-  margin-top: var(--dl-space-space-oneandhalfunits);
+  margin-top: var(--dl-space-space-halfunit);
   text-align: center;
   align-items: flex-start;
-  margin-bottom: var(--dl-space-space-unit);
+  margin-bottom: var(--dl-space-space-oneandhalfunits);
   justify-content: center;
 }
 .home-image {
@@ -89,6 +89,7 @@
   color: rgb(255, 255, 255);
   opacity: 0.75;
   font-size: 26px;
+  align-self: flex-start;
   font-family: Tahoma;
 }
 .home-container3 {
@@ -96,6 +97,7 @@
   width: 1182px;
   display: grid;
   grid-gap: var(--dl-space-space-twounits);
+  margin-top: var(--dl-space-space-unit);
   align-items: flex-start;
   grid-template-columns: 1fr 1fr 1fr 1fr;
 }
@@ -107,7 +109,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
@@ -137,7 +139,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
@@ -167,7 +169,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
@@ -197,7 +199,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
@@ -227,7 +229,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
@@ -256,7 +258,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
@@ -285,7 +287,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
@@ -314,7 +316,7 @@
   box-shadow: 5px 5px 10px 0px rgba(18, 18, 18, 0.1);
   transition: 0.3s;
   align-items: center;
-  border-radius: var(--dl-radius-radius-radius4);
+  border-radius: 10px;
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;

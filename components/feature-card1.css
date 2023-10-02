@@ -10,7 +10,7 @@
   flex-direction: column;
   background-size: cover;
   justify-content: flex-start;
-  background-image: url("public/%C3%97%C2%AA%C3%97%C2%9E%C3%97%C2%95%C3%97%C2%A0%C3%97%C2%942-1500w.png");
+  background-image: url("public/blur80-1500w.png");
 }
 .feature-card1-feature-card:hover {
   transform: scale(1.02);

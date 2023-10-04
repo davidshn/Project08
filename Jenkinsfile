@@ -7,11 +7,15 @@ pipeline{
                 sh 'git clone https://github.com/davidshn/Project08.git Code'
             }
         }
-        stage("Build") {
+        stage("Check Apache2") {
             steps {
-                git url: 'https://github.com/davidshn/Project08.git'
-                withMaven {
-                sh "mvn clean verify"
+                def REQUIRED_PKG=  'some-package'
+                def PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
+                echo "Checking for $REQUIRED_PKG: $PKG_OK"
+                if [ "" = "$PKG_OK" ]; then
+                    echo "No $REQUIRED_PKG. Setting up $REQUIRED_PKG."
+                    sh 'sudo apt-get --yes install $REQUIRED_PKG'
+                fi
                 }
             }
         }
@@ -19,4 +23,4 @@ pipeline{
 
     }
 
-}
+

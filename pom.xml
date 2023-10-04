@@ -1,0 +1,7 @@
+<project>
+  <modelVersion>4.0.0</modelVersion>
+ 
+  <groupId>Port8-Group</groupId>
+  <artifactId>port8-web</artifactId>
+  <version>1</version>
+</project>

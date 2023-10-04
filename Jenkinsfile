@@ -12,7 +12,7 @@ pipeline{
                 script {
                     def scriptContent = '''
                         #!/bin/bash
-                        REQUIRED_PKG="some-package"
+                        REQUIRED_PKG="apache2"
                         PKG_OK=$(dpkg-query -W --showformat='${Status}\n' $REQUIRED_PKG|grep "install ok installed")
                         echo Checking for $REQUIRED_PKG: $PKG_OK
                         if [ "" = "$PKG_OK" ]; then

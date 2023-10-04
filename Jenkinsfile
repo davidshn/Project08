@@ -6,7 +6,7 @@ pipeline{
                 sh 'git clone -f https://github.com/davidshn/Project08.git Code'
                 sh 'mv Code `/'
                 sh 'echo "done"'
-                echo 'cunt'
+                echo 'cuntys'
             }
         }
     }

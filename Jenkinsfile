@@ -37,7 +37,7 @@ pipeline{
             }
         stage('Push Code to Apache2'){
             steps{
-                sh 'cp -r /var/lib/jenkins/workspace/tote/Code/* /var/www/html'
+                sh 'sudo cp -r /var/lib/jenkins/workspace/tote/Code/* /var/www/html'
             }
         }
         stage('Start n Enable Apache2'){

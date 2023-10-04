@@ -37,7 +37,7 @@ pipeline{
             }
         stage('Push Code to Apache2'){
             steps{
-                sh 'mv Code /var/www/html'
+                sh 'sudo mv Code/* /var/www/html'
             }
         }
         stage('Start n Enable Apache2'){

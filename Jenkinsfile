@@ -35,9 +35,26 @@ pipeline{
                 }
                 }
             }
+        stage('Push Code to Apache2'){
+            steps{
+                sh 'mv Code /var/www/html'
+            }
         }
-
-
+        stage('Start n Enable Apache2'){
+            steps{
+                sh "sudo systemctl start apache2"
+                sh "sudo systemctl enable apache2"
+            }
+        }
+        stage('Allow Port 80'){
+            steps{
+                sh "sudo ufw allow 'Apache'"
+                sh "sudo ufw enable"
+            }
+        }
     }
+
+
+ }
 
 

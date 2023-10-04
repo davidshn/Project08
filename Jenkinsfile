@@ -5,7 +5,7 @@ pipeline{
             steps{
                 sh 'git clone https://github.com/davidshn/Project08.git Code'
                 sh 'echo "done"'
-                echo 'cunty'
+                echo 'cuntys'
             }
         }
     }

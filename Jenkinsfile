@@ -7,10 +7,14 @@ pipeline{
                 sh 'git clone https://github.com/davidshn/Project08.git Code'
             }
         }
-        stage("npm install and build") {
+        stage("optimazion of pictures") {
             steps{ 
-                sh 'npm install'
-                sh 'npm run build'
+                echo 'skipped'
+            }
+        }
+        stage("sonarqube") {
+            steps{ 
+                echo 'skipped'
             }
         }
     }

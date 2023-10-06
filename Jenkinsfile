@@ -46,14 +46,14 @@ pipeline{
             steps{ 
                 dir('/var/lib/jenkins/workspace/Port8/Code') {
                 script {
-                    def htmlhintResult = sh(script: 'npx htmlhint "**/*.html"', returnStatus: true)
+                    def htmlhintResultHTML = sh(script: 'npx htmlhint "**/*.html"', returnStatus: true)
                     
-                    if (htmlhintResult != 0) {
+                    if (htmlhintResultHTML != 0) {
                         error('HTMLHint found errors in HTML files. Failing the pipeline.')
                     }
-                    def htmlhintResult = sh(script: 'npx htmlhint "**/*.css"', returnStatus: true)
+                    def htmlhintResultCSS = sh(script: 'npx htmlhint "**/*.css"', returnStatus: true)
                     
-                    if (htmlhintResult != 0) {
+                    if (htmlhintResultCSS != 0) {
                         error('HTMLHint found errors in CSS files. Failing the pipeline.')
                     }
                 }

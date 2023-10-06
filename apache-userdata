@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Update and upgrade packages
+sudo apt update -y
+sudo apt upgrade -y
+
+# Install Apache
+sudo apt install apache2 -y
+
+# Start and enable Apache
+sudo systemctl start apache2
+sleep 30
+sudo systemctl enable apache2
+
+# Allow HTTP traffic through the firewall
+sudo ufw allow 'Apache'
+sudo ufw enable
+
+# Clone your Git repository to /var/www/html/
+rm /var/www/html/*
+git clone https://github.com/davidshn/Project08.git /var/www/html/
+

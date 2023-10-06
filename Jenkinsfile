@@ -17,13 +17,24 @@ pipeline{
                     def scriptContent = '''
                         #!/bin/bash
                         if [ -f .htmlhintrc ]; then
-                            echo "The .htmlhintrc file exists in the current directory."
+                            echo "The .htmlhintrc file exists."
                         else
                             apt update -y
                             apt install npm -y
                             npm install --save-dev htmlhint
-                            echo '{ "attr-value-not-empty": false }' > .htmlhintrc
-                            npx htmlhint "**/*.html"
+                            echo '{
+    "tagname-lowercase": true,
+    "attr-lowercase": true,
+    "attr-value-double-quotes": true,
+    "attr-no-duplication": true,
+    "doctype-first": false,
+    "tag-pair": true,
+    "tag-self-close": true,
+    "spec-char-escape": true,
+    "id-unique": true,
+    "src-not-empty": true,
+    "attr-unsafe-chars": true
+}' > .htmlhintrc
                         fi
 
                     '''
@@ -49,12 +60,12 @@ pipeline{
                     def htmlhintResultHTML = sh(script: 'npx htmlhint "**/*.html"', returnStatus: true)
                     
                     if (htmlhintResultHTML != 0) {
-                        error('HTMLHint found errors in HTML files. Failing the pipeline.')
+                        error('There are errors in HTML files.')
                     }
                     def htmlhintResultCSS = sh(script: 'npx htmlhint "**/*.css"', returnStatus: true)
                     
                     if (htmlhintResultCSS != 0) {
-                        error('HTMLHint found errors in CSS files. Failing the pipeline.')
+                        error('There are errors in CSS files.')
                     }
                 }
             }

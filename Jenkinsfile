@@ -1,3 +1,8 @@
+def COLOR_MAP = [
+    'SUCCESS': 'good', 
+    'FAILURE': 'danger',
+]
+
 pipeline{
     agent any
     environment {
@@ -93,9 +98,31 @@ pipeline{
                 }
             }
         }
+        stage("Upload Code to S3") {
+            steps {
+                    echo 'skipped'
+                }
+         }
+         stage("Something") {
+            steps {
+                    echo 'skipped'
+                }
+        
+        }
     }
+    post {
+        always { // even if pipeline fails - this runs
+            echo 'Slack Notifications.' 
+            slackSend channel: '#port-8',
+                color: COLOR_MAP[currentBuild.currentResult],
+                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+        }
+    
+   }
+}
 
 
- }
+
+ 
 
 

@@ -100,11 +100,12 @@ pipeline{
         }
         stage('Upload to S3') {
             steps {
+                dir('/var/lib/jenkins/workspace/Port8') {
                 script {
                     withAWS(region:'us-east-2', credentials:'s3-log-admin') {
-                        s3Upload(file:'index.html', bucket:'port8-bucket', path:'Code/index.html')
+                        s3Upload(file:'Code', bucket:'port8-bucket', path:'Code')
                     }
-                  
+                  }
                 }
             }
         }

@@ -98,11 +98,17 @@ pipeline{
                 }
             }
         }
-        stage("Upload Code to S3") {
+        stage('Upload to S3') {
             steps {
-                    echo 'skipped'
+                script {
+                    dir('/var/lib/jenkins/workspace/Port8/Code') {
+                    withAWS(region:'us-east-2', credentials:'s3-log-admin') {
+                        s3Upload(file:'index.html', bucket:'port8-bucket', path:'Code/index.html')
+                    }
+                  }
                 }
-         }
+            }
+        }
          stage("Something") {
             steps {
                     echo 'skipped'
@@ -115,7 +121,7 @@ pipeline{
             echo 'Slack Notifications.' 
             slackSend channel: '#port-8',
                 color: COLOR_MAP[currentBuild.currentResult],
-                message: "*${currentBuild.currentResult}:* Job ${env.JOB_NAME} build ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
+                message: "*${currentBuild.currentResult}:* \n Job: ${env.JOB_NAME} Build: ${env.BUILD_NUMBER} \n More info at: ${env.BUILD_URL}"
         }
     
    }

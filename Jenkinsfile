@@ -8,6 +8,11 @@ pipeline{
     environment {
         SONARSERVER = 'sonarserver' // from system, name of installations
         SONARSCANNER = 'sonarserver' //from tools, name of scanner
+        BUCKET_REGION = 'us-east-2'
+        BUCKET_CREDENTIALS = 's3-log-admin'
+        BUCKET_FILE = 'Code'
+        BUCKET_NAME = 'port8-bucket'
+        BUCKET_PATH = 'Code'
     }
     stages{
         stage('Clone From Git To Instance'){
@@ -102,8 +107,8 @@ pipeline{
             steps {
                 dir('/var/lib/jenkins/workspace/Port8') {
                 script {
-                    withAWS(region:'us-east-2', credentials:'s3-log-admin') {
-                        s3Upload(file:'Code', bucket:'port8-bucket', path:'Code')
+                    withAWS(region:"${BUCKET_REGION}", credentials:"${BUCKET_CREDENTIALS}") {
+                        s3Upload(file:$"${BUCKET_FILE}", bucket:"${BUCKET_NAME}", path:"${BUCKET_PATH}")
                     }
                   }
                 }

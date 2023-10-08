@@ -108,7 +108,7 @@ pipeline{
                 dir('/var/lib/jenkins/workspace/Port8') {
                 script {
                     withAWS(region:"${BUCKET_REGION}", credentials:"${BUCKET_CREDENTIALS}") {
-                        s3Upload(file:$"${BUCKET_FILE}", bucket:"${BUCKET_NAME}", path:"${BUCKET_PATH}")
+                        s3Upload(file:"${BUCKET_FILE}", bucket:"${BUCKET_NAME}", path:"${BUCKET_PATH}")
                     }
                   }
                 }

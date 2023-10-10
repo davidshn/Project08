@@ -19,7 +19,7 @@ pipeline{
             steps {
                 dir('/var/lib/jenkins/workspace/Port8') {
                 script{
-                    sh " aws s3 cp s3://port8-bucket/Code/index.html ."
+                    sh " aws s3 cp s3://port8-bucket/Code/Port8.zip ."
                 }
              }
             }
